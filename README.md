@@ -546,9 +546,9 @@ MIT License - Free for personal and commercial use
 
 ### 👨‍💻 Developer
 <!-- - **Portfolio**: [Your Portfolio Website] -->
-- **LinkedIn**: [Your LinkedIn Profile]
+<!-- - **LinkedIn**: [Your LinkedIn Profile]
 - **GitHub**: [Your GitHub Profile]
-- **Email**: [your.email@example.com]
+- **Email**: [your.email@example.com] -->
 
 
 
