@@ -5,7 +5,7 @@ import '../../core/constants/app_strings.dart';
 import '../../core/constants/app_colors.dart';
 import '../../providers/app_settings_provider.dart';
 import '../../providers/weather_provider.dart';
-import 'home_screen.dart';
+import 'onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -75,12 +75,12 @@ class _SplashScreenState extends State<SplashScreen>
       await Future.delayed(const Duration(milliseconds: 1000));
     }
 
-    // Navigate to home screen
+    // Navigate to onboarding screen
     if (mounted) {
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const HomeScreen(),
+              const OnboardingScreen(),
           transitionDuration: const Duration(milliseconds: 600),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(1.0, 0.0);

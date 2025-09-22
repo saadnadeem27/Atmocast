@@ -13,6 +13,9 @@ import '../widgets/loading_shimmer.dart';
 import '../widgets/error_widget.dart';
 import 'location_search_screen.dart';
 import 'settings_screen.dart';
+import 'weather_map_screen.dart';
+import 'analytics_screen.dart';
+import 'saved_locations_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -130,14 +133,67 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           },
         ),
         IconButton(
-          icon: const Icon(Icons.settings_outlined),
+          icon: const Icon(Icons.map_outlined),
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const SettingsScreen(),
+                builder: (context) => const WeatherMapScreen(),
               ),
             );
           },
+        ),
+        IconButton(
+          icon: const Icon(Icons.analytics_outlined),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AnalyticsScreen(),
+              ),
+            );
+          },
+        ),
+        PopupMenuButton<String>(
+          icon: const Icon(Icons.more_vert),
+          onSelected: (value) {
+            switch (value) {
+              case 'saved_locations':
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SavedLocationsScreen(),
+                  ),
+                );
+                break;
+              case 'settings':
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+                break;
+            }
+          },
+          itemBuilder: (context) => [
+            const PopupMenuItem(
+              value: 'saved_locations',
+              child: Row(
+                children: [
+                  Icon(Icons.bookmark_outline, color: AppColors.textSecondary),
+                  SizedBox(width: 8),
+                  Text('Saved Locations'),
+                ],
+              ),
+            ),
+            const PopupMenuItem(
+              value: 'settings',
+              child: Row(
+                children: [
+                  Icon(Icons.settings_outlined, color: AppColors.textSecondary),
+                  SizedBox(width: 8),
+                  Text('Settings'),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
