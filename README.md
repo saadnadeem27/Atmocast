@@ -542,7 +542,7 @@ MIT License - Free for personal and commercial use
 
 ---
 
-## 📞 Contact & Support
+<!-- ## 📞 Contact & Support
 
 ### 👨‍💻 Developer
 <!-- - **Portfolio**: [Your Portfolio Website] -->
@@ -552,7 +552,7 @@ MIT License - Free for personal and commercial use
 
 
 
----
+--- -->
 
 <div align="center">
 
