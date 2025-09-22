@@ -48,7 +48,7 @@ class WeatherApiService {
   Future<WeatherData> getCurrentWeather(Location location) async {
     // Create cache key
     final cacheKey = '${location.latitude},${location.longitude}';
-    
+
     // Check cache first
     final cached = _weatherCache[cacheKey];
     if (cached != null && !cached.isExpired) {
@@ -57,8 +57,9 @@ class WeatherApiService {
     }
 
     try {
-      debugPrint('WeatherApi: Fetching weather data for ${location.name} (${location.latitude}, ${location.longitude})');
-      
+      debugPrint(
+          'WeatherApi: Fetching weather data for ${location.name} (${location.latitude}, ${location.longitude})');
+
       final uri = Uri.parse('$_baseUrl/weather').replace(queryParameters: {
         'lat': location.latitude.toString(),
         'lon': location.longitude.toString(),
@@ -78,11 +79,12 @@ class WeatherApiService {
 
         // Cache the result
         _weatherCache[cacheKey] = CacheEntry(weatherData, DateTime.now());
-        
+
         debugPrint('WeatherApi: Weather data fetched successfully');
         return weatherData;
       } else {
-        debugPrint('WeatherApi: API error - Status: ${response.statusCode}, Body: ${response.body}');
+        debugPrint(
+            'WeatherApi: API error - Status: ${response.statusCode}, Body: ${response.body}');
         throw WeatherApiException(
           _getErrorMessage(response.statusCode, response.body),
           response.statusCode,
@@ -100,7 +102,9 @@ class WeatherApiService {
       throw WeatherApiException(
           'Failed to fetch weather data: ${e.toString()}');
     }
-  }  /// Get hourly forecast for a location (48 hours)
+  }
+
+  /// Get hourly forecast for a location (48 hours)
   Future<List<HourlyForecast>> getHourlyForecast(Location location) async {
     try {
       final uri = Uri.parse('$_baseUrl/forecast').replace(queryParameters: {
@@ -159,8 +163,9 @@ class WeatherApiService {
           final DateTime date = DateTime.fromMillisecondsSinceEpoch(
             (item['dt'] as int) * 1000,
           );
-          final String dayKey = '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-          
+          final String dayKey =
+              '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+
           if (!dailyData.containsKey(dayKey)) {
             dailyData[dayKey] = [];
           }
@@ -171,11 +176,13 @@ class WeatherApiService {
         final List<DailyForecast> dailyForecasts = [];
         for (final entry in dailyData.entries) {
           if (dailyForecasts.length >= 5) break; // Limit to 5 days
-          
+
           final dayData = entry.value;
           if (dayData.isNotEmpty) {
             // Use midday forecast for daily summary
-            final midDayForecast = dayData.length > 1 ? dayData[dayData.length ~/ 2] : dayData.first;
+            final midDayForecast = dayData.length > 1
+                ? dayData[dayData.length ~/ 2]
+                : dayData.first;
             dailyForecasts.add(DailyForecast.fromJson(midDayForecast));
           }
         }

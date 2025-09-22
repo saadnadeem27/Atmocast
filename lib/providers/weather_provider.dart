@@ -62,8 +62,9 @@ class WeatherProvider extends ChangeNotifier {
 
       // Get current location
       final location = await _locationService.getLocationWithFallback();
-      debugPrint('WeatherProvider: Got location: ${location.name} (${location.latitude}, ${location.longitude})');
-      
+      debugPrint(
+          'WeatherProvider: Got location: ${location.name} (${location.latitude}, ${location.longitude})');
+
       await loadWeatherForLocation(location);
       debugPrint('WeatherProvider: Initialization completed successfully');
     } catch (e) {
@@ -77,7 +78,8 @@ class WeatherProvider extends ChangeNotifier {
     try {
       _setStatus(WeatherStatus.loading);
       _currentLocation = location;
-      debugPrint('WeatherProvider: Loading weather for location: ${location.name}');
+      debugPrint(
+          'WeatherProvider: Loading weather for location: ${location.name}');
 
       // Get comprehensive weather data
       final weatherData =
@@ -89,8 +91,10 @@ class WeatherProvider extends ChangeNotifier {
       _lastUpdated = DateTime.now();
 
       debugPrint('WeatherProvider: Weather data loaded successfully');
-      debugPrint('WeatherProvider: Current temp: ${_currentWeather?.temperature.current}°C');
-      debugPrint('WeatherProvider: Hourly forecasts: ${_hourlyForecast.length}');
+      debugPrint(
+          'WeatherProvider: Current temp: ${_currentWeather?.temperature.current}°C');
+      debugPrint(
+          'WeatherProvider: Hourly forecasts: ${_hourlyForecast.length}');
       debugPrint('WeatherProvider: Daily forecasts: ${_dailyForecast.length}');
 
       _setStatus(WeatherStatus.success);

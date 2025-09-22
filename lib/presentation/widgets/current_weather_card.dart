@@ -251,8 +251,8 @@ class CurrentWeatherCard extends StatelessWidget {
               Text(
                 unit,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                      color: AppColors.textSecondary,
+                    ),
               ),
             ],
           ),

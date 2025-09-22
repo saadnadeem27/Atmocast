@@ -151,10 +151,11 @@ class _HourlyForecastItem extends StatelessWidget {
                       Flexible(
                         child: Text(
                           '${(forecast.precipitationProbability! * 100).round()}%',
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppColors.info,
-                                fontSize: 10,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: AppColors.info,
+                                    fontSize: 10,
+                                  ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),

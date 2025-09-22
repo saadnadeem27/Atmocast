@@ -150,9 +150,10 @@ class _DailyForecastItem extends StatelessWidget {
                       Flexible(
                         child: Text(
                           '${(forecast.precipitationProbability! * 100).round()}%',
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppColors.info,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: AppColors.info,
+                                  ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -173,10 +174,11 @@ class _DailyForecastItem extends StatelessWidget {
                     Flexible(
                       child: Text(
                         '${forecast.temperature.min.round()}°',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              color: AppColors.textSecondary,
-                              fontWeight: FontWeight.w400,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: AppColors.textSecondary,
+                                  fontWeight: FontWeight.w400,
+                                ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -204,9 +206,10 @@ class _DailyForecastItem extends StatelessWidget {
                     Flexible(
                       child: Text(
                         '${forecast.temperature.max.round()}°',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
