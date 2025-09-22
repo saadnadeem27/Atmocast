@@ -545,16 +545,12 @@ MIT License - Free for personal and commercial use
 ## 📞 Contact & Support
 
 ### 👨‍💻 Developer
-- **Portfolio**: [Your Portfolio Website]
+<!-- - **Portfolio**: [Your Portfolio Website] -->
 - **LinkedIn**: [Your LinkedIn Profile]
 - **GitHub**: [Your GitHub Profile]
 - **Email**: [your.email@example.com]
 
-### 📖 Project Links
-- **Live Demo**: [App Demo Link]
-- **Documentation**: [Additional Docs]
-- **Issues**: [GitHub Issues](https://github.com/yourusername/atmo_cast/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/atmo_cast/discussions)
+
 
 ---
 
